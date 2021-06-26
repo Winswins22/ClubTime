@@ -4,7 +4,11 @@ import moment from 'moment'
 import {
   MonthGrid,
   MonthDay,
-  Arrows
+  Arrows,
+  LargeText,
+  Text,
+  AllowedGridSpace,
+  CalendarBar
 } from './Calendar.elems'
 
 const Calendar = () => {
@@ -19,7 +23,7 @@ const Calendar = () => {
     endDay = currentDay.clone().endOf("month").endOf("week");
     const day = startDay.clone().subtract(1, "day");
     const a = [];
-    while (day.isBefore(endDay, "day")) {
+    while (day.isBefore(endDay, "day") || (a.length < 6)) {
       a.push(
         Array(7)
           .fill(0)
@@ -47,31 +51,43 @@ const Calendar = () => {
     createCalendar()
   }
 
+  function isSameMonth(moment1, moment2){
+    return (moment1.format("MMMM") === moment2.format("MMMM"))
+  }
+
   return (
     <>
-      {currentDay.format('MMMM YYYY')}
+      <CalendarBar>
+        
+        <LargeText>{currentDay.format('MMMM YYYY')}</LargeText>
 
-      <MonthGrid>
+        <div style={{display:"flex"}}>
+          <Arrows onClick={decreaseMonth}> {"<"} </Arrows>
+          <Arrows onClick={increaseMonth}> {">"} </Arrows>
+        </div>
+        
+      </CalendarBar>
 
-        {
-          calendar.map((week) => {
-            return (
-              week.map((day) => {
-                return (
-                  <MonthDay>{day.clone().format("D")}</MonthDay>
-                )
-              })
-            )
-          })
-        }
 
-      </MonthGrid>
+      <AllowedGridSpace>
+        <MonthGrid>
 
-      <div style={{display:"flex", flexDirection:"row"}}>
-        <Arrows onClick={decreaseMonth}> {"<"} </Arrows>
-        <Arrows onClick={increaseMonth}> {">"} </Arrows>
-      </div>
+          {
+            calendar.map((week) => {
+              return (
+                week.map((day) => {
+                  return (
+                    <MonthDay bgColor={() => isSameMonth(day, currentDay) ? "transparent" : "grey"}>
+                      {day.clone().format("D")}
+                    </MonthDay>
+                  )
+                })
+              )
+            })
+          }
 
+        </MonthGrid>
+      </AllowedGridSpace>
     </>
   )
 }
