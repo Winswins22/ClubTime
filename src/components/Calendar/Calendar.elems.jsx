@@ -12,3 +12,7 @@ export const MonthGrid = styled.div`
 export const MonthDay = styled.div`
   
 `
+
+export const Arrows = styled.div`
+  font-size: 20rem;
+`

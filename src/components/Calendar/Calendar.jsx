@@ -3,17 +3,20 @@ import moment from 'moment'
 
 import {
   MonthGrid,
-  MonthDay
+  MonthDay,
+  Arrows
 } from './Calendar.elems'
 
 const Calendar = () => {
 
   const [calendar, setCalendar] = useState([]);
   const [currentDay, setDay] = useState(moment());
-  const startDay = currentDay.clone().startOf("month").startOf("week");
-  const endDay = currentDay.clone().endOf("month").endOf("week");
+  let startDay = currentDay.clone().startOf("month").startOf("week");
+  let endDay = currentDay.clone().endOf("month").endOf("week");
 
-  useEffect(() => {
+  function createCalendar(){
+    startDay = currentDay.clone().startOf("month").startOf("week");
+    endDay = currentDay.clone().endOf("month").endOf("week");
     const day = startDay.clone().subtract(1, "day");
     const a = [];
     while (day.isBefore(endDay, "day")) {
@@ -23,11 +26,30 @@ const Calendar = () => {
           .map(() => day.add(1, "day").clone())
       );
     }
+    console.log("og", calendar)
     setCalendar(a);
-  }, [currentDay]);
+    console.log("new", calendar)
+  };
+
+  useEffect(() => {
+    createCalendar()
+  }, [])
+
+  function decreaseMonth(){
+    console.log("decrease")
+    setDay(currentDay.subtract(1, "month"))
+    createCalendar()
+  }
+
+  function increaseMonth(){
+    console.log("increase")
+    setDay(currentDay.add(1, "month"))
+    createCalendar()
+  }
 
   return (
     <>
+      {currentDay.format('MMMM YYYY')}
 
       <MonthGrid>
 
@@ -42,7 +64,13 @@ const Calendar = () => {
             )
           })
         }
+
       </MonthGrid>
+
+      <div style={{display:"flex", flexDirection:"row"}}>
+        <Arrows onClick={decreaseMonth}> {"<"} </Arrows>
+        <Arrows onClick={increaseMonth}> {">"} </Arrows>
+      </div>
 
     </>
   )
