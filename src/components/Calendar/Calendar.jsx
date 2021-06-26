@@ -80,7 +80,9 @@ const Calendar = () => {
               return (
                 week.map((day) => {
                   return (
-                    <MonthDay bgColor={() => isSameMonth(day, currentDay) ? "transparent" : "grey"}>
+                    <MonthDay 
+                      bgColor={() => isSameMonth(day, currentDay) ? "transparent" : "grey"}
+                    >
                       {day.clone().format("D")}
                     </MonthDay>
                   )
