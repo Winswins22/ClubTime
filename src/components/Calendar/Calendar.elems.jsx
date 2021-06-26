@@ -19,6 +19,11 @@ export const MonthGrid = styled.div`
 export const MonthDay = styled.div`
   font-size: 1.5rem;
   background-color: ${({bgColor}) => bgColor};
+
+  :hover {
+    transition: background-color 0.2s;
+    background-color: ${({bgColor}) => (bgColor === "grey") ? "grey" : "darkgrey"};
+  }
 `
 
 export const CalendarBar = styled.div`
