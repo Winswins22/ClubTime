@@ -32,12 +32,3 @@ export const CalendarBar = styled.div`
 export const Arrows = styled.div`
   font-size: 5rem;
 `
-
-
-export const LargeText = styled.div`
-  font-size: 3rem;
-`
-
-export const Text = styled.div`
-  font-size: 2.5rem;
-`

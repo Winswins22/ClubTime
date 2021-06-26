@@ -5,11 +5,14 @@ import {
   MonthGrid,
   MonthDay,
   Arrows,
-  LargeText,
-  Text,
   AllowedGridSpace,
   CalendarBar
 } from './Calendar.elems'
+
+import {
+  LargeText,
+  Text
+} from '../globalStyles'
 
 const Calendar = () => {
 
