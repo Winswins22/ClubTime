@@ -15,7 +15,7 @@ export const Nav = styled.nav`
   top: 0;
   margin: 0;
   z-index: 999;
-  width: 110%;
+  width: 105%;
   left: 0;
   transition: background-color 0.5s, color 0.5s;
 `

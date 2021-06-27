@@ -37,7 +37,7 @@ export const Navbar = () => {
   return (
     <Nav navbarSolid={navbar}>
       <NavbarContainer>
-        <NavLogo to='/'>
+        <NavLogo to='/ClubTime'>
           <Img src={ClubTimeLogo} ></Img>
           ClubTime
         </NavLogo>
