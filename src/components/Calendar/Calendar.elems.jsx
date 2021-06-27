@@ -36,4 +36,5 @@ export const CalendarBar = styled.div`
 
 export const Arrows = styled.div`
   font-size: 5rem;
+  cursor: pointer;
 `

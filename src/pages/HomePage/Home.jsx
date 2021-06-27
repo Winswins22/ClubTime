@@ -1,9 +1,12 @@
 import React from 'react'
 import {Calendar} from '../../components'
+import { PagePusher } from '../../components/globalStyles'
 
 function Home() {
   return (
-    <Calendar></Calendar>
+    <PagePusher>
+      <Calendar></Calendar>
+    </PagePusher>
   )
 }
 

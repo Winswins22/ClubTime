@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import moment from 'moment'
 
+import Popup from '../EventPopup/EventPopup'
+
 import {
   MonthGrid,
   MonthDay,
@@ -18,6 +20,8 @@ const Calendar = () => {
 
   const [calendar, setCalendar] = useState([]);
   const [currentDay, setDay] = useState(moment());
+  const [showPopup, togglePopup] = useState(false);
+
   let startDay = currentDay.clone().startOf("month").startOf("week");
   let endDay = currentDay.clone().endOf("month").endOf("week");
 
@@ -60,17 +64,19 @@ const Calendar = () => {
 
   return (
     <>
+      <Popup showPopup={showPopup} togglePopup={togglePopup}></Popup>
+
       <CalendarBar>
         
         <LargeText>{currentDay.format('MMMM YYYY')}</LargeText>
 
         <div style={{display:"flex"}}>
           <Arrows onClick={decreaseMonth}> {"<"} </Arrows>
+          <div style={{marginLeft: "50px"}}></div>
           <Arrows onClick={increaseMonth}> {">"} </Arrows>
         </div>
         
       </CalendarBar>
-
 
       <AllowedGridSpace>
         <MonthGrid>
@@ -82,6 +88,7 @@ const Calendar = () => {
                   return (
                     <MonthDay 
                       bgColor={() => isSameMonth(day, currentDay) ? "transparent" : "grey"}
+                      onClick={() => togglePopup(!showPopup)}
                     >
                       {day.clone().format("D")}
                     </MonthDay>
@@ -93,6 +100,8 @@ const Calendar = () => {
 
         </MonthGrid>
       </AllowedGridSpace>
+
+
     </>
   )
 }
