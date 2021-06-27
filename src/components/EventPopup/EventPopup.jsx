@@ -25,7 +25,7 @@ import {
 import Aos from 'aos'
 import 'aos/dist/aos.css/'
 
-const Popup = ({showPopup, togglePopup, eventName=null, eventStartMoment=null}) => {
+const Popup = ({showPopup, togglePopup, addEvent, eventName=null, eventStartMoment=null}) => {
 
   const [submitted, changeSubmit] = useState(false)
   const [submitText, changeText] = useState("Create Event!");
@@ -39,13 +39,20 @@ const Popup = ({showPopup, togglePopup, eventName=null, eventStartMoment=null}) 
   function createEvent(name, date, time, calendar){
     console.log("New Event:", name, date, time)
 
-    let year, month, day = date.split("-")
-    let hour, minute = time.split(":")
+    let timeByDay = date.split("-")
+    let year = timeByDay[0];
+    let month = timeByDay[1] - 1;
+    let day = timeByDay[2];
+
+    let timeInDay = time.split(":")
+    let hour = timeInDay[0] 
+    let minute = timeInDay[1]
 
     let momentDate = moment();
     momentDate.set({'year' : year, 'month': month, 'date':day, 'hour': hour, 'minute': minute});
 
     console.log("Event Creation Output", {"calendar":calendar, "name":name, "date":momentDate})
+    addEvent(name, momentDate, calendar)
   }
 
   const handleSubmit = (e) => {
@@ -96,7 +103,7 @@ const Popup = ({showPopup, togglePopup, eventName=null, eventStartMoment=null}) 
                     
                     <NewLine></NewLine>
                     <WhiteSmallText> Calendar Name </WhiteSmallText>
-                    <PopupInput name="calendar" value="Homework"></PopupInput>
+                    <PopupInput name="calendar" value="homework"></PopupInput>
                     
                     <NewLine></NewLine>
                     <WhiteSmallText> Event Date </WhiteSmallText>
