@@ -13,6 +13,7 @@ export const Nav = styled.nav`
   font-size: 1.2rem;
   position: fixed;
   top: 0;
+  margin: 0;
   z-index: 999;
   width: 100%;
   transition: background-color 0.5s, color 0.5s;
@@ -21,6 +22,8 @@ export const NavbarContainer = styled(Container)`
   display: flex;
   justify-content: space-between;
   height: 80px;
+  margin: 0;
+
   ${Container}
 `
 
