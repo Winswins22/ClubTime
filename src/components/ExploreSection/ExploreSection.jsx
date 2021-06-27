@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import {
   Background,
@@ -26,6 +26,9 @@ import CSPicture from '../../images/CSpicture.jpg'
 import gameNight from '../../images/gameNight.png'
 import CCCLogo from '../../images/cccLogo.png'
 
+import CSModal from '../Modals/CSModal.jsx'
+
+
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
@@ -47,6 +50,28 @@ const PrevArrow = ({onClick}) => {
 }
 
 const ExploreSection = () => {
+  const [showCSModal, setShowCSModal] = useState(false);
+  const [showMathModal, setShowMathModal] = useState(false);
+  const [showGameNightModal, setShowGameNightModal] = useState(false);
+  const [showCCCModal, setShowCCCModal] = useState(false);
+
+  const openCSModal = () => {
+    setShowCSModal(prev => !prev);
+    console.log(showCSModal);
+  };
+
+  const openMathModal = () => {
+    setShowMathModal(prev => !prev);
+  };
+
+  const openGameNightModal = () => {
+    setShowGameNightModal(prev => !prev);
+  };
+
+  const openCCCModal = () => {
+    setShowCCCModal(prev => !prev);
+  };
+
   const settings = {
     dots: true,
     infinite: true,
@@ -58,15 +83,19 @@ const ExploreSection = () => {
 
   return (
     <Background>
+      <CSModal showModal={showCSModal} setShowModal={setShowCSModal}/>
+
       <HeaderSection>
         <HeaderText>Explore</HeaderText>
         <HeaderSubText>Find upcoming events and new clubs to join!</HeaderSubText>
       </HeaderSection>
       
+
+
       <SectionHeader>Clubs</SectionHeader>
       <CarouselContainer>
         <Carousel {...settings}>
-          <Card> {/* Content for the front of the card */}
+          <Card onClick={openCSModal}> {/* Content for the front of the card */}
             <ClubLogoBkg>
               <ClubLogo src={BCSCLogo} alt=""></ClubLogo>
             </ClubLogoBkg>
@@ -76,7 +105,7 @@ const ExploreSection = () => {
             </ClubNameContainer>
           </Card>
 
-          <Card> {/* Content for the front of the card */}
+          <Card onClick={openMathModal}> {/* Content for the front of the card */}
             <ClubLogoBkg>
               <ClubLogo src={MathLogo} alt=""></ClubLogo>
             </ClubLogoBkg>
@@ -91,7 +120,7 @@ const ExploreSection = () => {
       <SectionHeader>Events</SectionHeader>
       <CarouselContainer>
         <Carousel {...settings}>
-          <Card> {/* Content for the front of the card */}
+          <Card onClick={openGameNightModal}> {/* Content for the front of the card */}
             <CardPicture src={gameNight} alt=""></CardPicture>
             <ClubNameContainer>
               <ClubName>Game Night</ClubName>
@@ -99,8 +128,7 @@ const ExploreSection = () => {
             </ClubNameContainer>
           </Card>
 
-          <Card> {/* Content for the front of the card */}
-
+          <Card onClick={setShowCCCModal}> {/* Content for the front of the card */}
             <CardPicture src={CCCLogo} alt=""></CardPicture>
             <ClubNameContainer>
               <ClubName>CCC</ClubName>

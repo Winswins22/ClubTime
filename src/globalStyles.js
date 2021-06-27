@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
       margin: 0;
       padding: 0;
       font-family: 'Titillium Web', sans-serif;
-  }
+    }
 `
 
 export const Container = styled.div`

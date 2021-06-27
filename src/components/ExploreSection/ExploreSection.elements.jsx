@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import Slider from 'react-slick';
 
 export const Background = styled.div`
-  background-color: #fff;
+  background-color: grey;
   width: 110%;
   margin-left: -10px;
+  height: 1400px;
 `
 
 export const HeaderSection = styled.div`
@@ -35,7 +36,6 @@ export const RightArrow = styled.div`
   color: #ff9900ff;
   position: absolute;
   cursor: pointer;
-  z-index: 99999;
   right: 300px;
   top: 200px;
 `
@@ -44,7 +44,6 @@ export const LeftArrow = styled.div`
   color: #ff9900ff;
   position: absolute;
   cursor: pointer;
-  z-index: 99999;
   left: 300px;
   top: 200px;
 `
@@ -67,6 +66,10 @@ export const Carousel = styled(Slider)`
 export const Card = styled.div`
   text-align: center;
   margin-left: 560px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export const CardPicture = styled.img`

@@ -5,15 +5,17 @@ import ScrollToTop from './components/ScrollToTop.jsx'
 
 import Home from './pages/HomePage/Home'
 import Explore from './pages/ExplorePage/Explore'
+import GlobalStyle from './globalStyles'
 
 function App() {
   return (
     <Router>
+      <GlobalStyle />
       <ScrollToTop />
       <Navbar/>
       <Switch>
-        <Route path='/' exact component={Home} />
         <Route path='/explore' component={Explore} />
+        <Route path='/' exact component={Home} />
       </Switch>
     </Router>
   );

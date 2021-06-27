@@ -12,7 +12,7 @@ import {
   NavLinks,
 } from './Navbar.elements'
 //Images
-import BCSCLogo from '../../images/BCSCLogo.png'
+import ClubTimeLogo from '../../images/clubTime.png'
 
 
 export const Navbar = () => {
@@ -38,8 +38,8 @@ export const Navbar = () => {
     <Nav navbarSolid={navbar}>
       <NavbarContainer>
         <NavLogo to='/'>
-          <Img src={BCSCLogo} ></Img>
-          Bethune Computer Science Club
+          <Img src={ClubTimeLogo} ></Img>
+          ClubTime
         </NavLogo>
         <MobileIcon onClick={handleClick}> {/*Toggles between the X and the triple bar icon when clicked*/}
           {click ? <FaTimes /> : <FaBars />}
