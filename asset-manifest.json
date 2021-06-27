@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/ClubTime/static/js/main.afcf241e.chunk.js",
-    "main.js.map": "/ClubTime/static/js/main.afcf241e.chunk.js.map",
+    "main.js": "/ClubTime/static/js/main.651e2c4f.chunk.js",
+    "main.js.map": "/ClubTime/static/js/main.651e2c4f.chunk.js.map",
     "runtime-main.js": "/ClubTime/static/js/runtime-main.6d46f717.js",
     "runtime-main.js.map": "/ClubTime/static/js/runtime-main.6d46f717.js.map",
     "static/css/2.2c022f7f.chunk.css": "/ClubTime/static/css/2.2c022f7f.chunk.css",
-    "static/js/2.4d8ccea1.chunk.js": "/ClubTime/static/js/2.4d8ccea1.chunk.js",
-    "static/js/2.4d8ccea1.chunk.js.map": "/ClubTime/static/js/2.4d8ccea1.chunk.js.map",
+    "static/js/2.c4a3321f.chunk.js": "/ClubTime/static/js/2.c4a3321f.chunk.js",
+    "static/js/2.c4a3321f.chunk.js.map": "/ClubTime/static/js/2.c4a3321f.chunk.js.map",
     "index.html": "/ClubTime/index.html",
     "static/css/2.2c022f7f.chunk.css.map": "/ClubTime/static/css/2.2c022f7f.chunk.css.map",
-    "static/js/2.4d8ccea1.chunk.js.LICENSE.txt": "/ClubTime/static/js/2.4d8ccea1.chunk.js.LICENSE.txt",
+    "static/js/2.c4a3321f.chunk.js.LICENSE.txt": "/ClubTime/static/js/2.c4a3321f.chunk.js.LICENSE.txt",
     "static/media/BCSCLogo.99d38df0.png": "/ClubTime/static/media/BCSCLogo.99d38df0.png",
     "static/media/CSpicture.bef02d7f.jpg": "/ClubTime/static/media/CSpicture.bef02d7f.jpg",
     "static/media/clubTime.a23a0887.png": "/ClubTime/static/media/clubTime.a23a0887.png",
@@ -21,7 +21,7 @@
   "entrypoints": [
     "static/js/runtime-main.6d46f717.js",
     "static/css/2.2c022f7f.chunk.css",
-    "static/js/2.4d8ccea1.chunk.js",
-    "static/js/main.afcf241e.chunk.js"
+    "static/js/2.c4a3321f.chunk.js",
+    "static/js/main.651e2c4f.chunk.js"
   ]
 }
