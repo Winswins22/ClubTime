@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export const Nav = styled.nav`
   background-color: #03001c;
   background-color: grey;
-  color: ;
+  color: #000;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -15,7 +15,8 @@ export const Nav = styled.nav`
   top: 0;
   margin: 0;
   z-index: 999;
-  width: 100%;
+  width: 110%;
+  left: 0;
   transition: background-color 0.5s, color 0.5s;
 `
 export const NavbarContainer = styled(Container)`
