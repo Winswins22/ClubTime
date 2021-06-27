@@ -195,9 +195,6 @@ const Calendar = () => {
           {
             makeEvent(day, e)
           }
-          {/* {
-            <Event time={e.date.format('h:mm a')} name={e.name}></Event>
-          } */}
         </>)
       })
       
@@ -216,7 +213,7 @@ const Calendar = () => {
           <CollapsibleItem style={{cursor: "pointer"}} toggleCheckmark={showParties} name="Parties" doClick={clickParties}></CollapsibleItem>
           <CollapsibleItem style={{cursor: "pointer"}} toggleCheckmark={showHw} name="Homework" doClick={clickHw}></CollapsibleItem>
 
-          <CollapsibleHeader title={"Clubs"}></CollapsibleHeader>
+          <CollapsibleHeader usePlus={true} title={"Clubs"}></CollapsibleHeader>
           <CollapsibleItem style={{cursor: "pointer"}} toggleCheckmark={showCS} name="CS Club" doClick={clickCS}></CollapsibleItem>
           <CollapsibleItem style={{cursor: "pointer"}} toggleCheckmark={showMath} name="Math Club" doClick={clickMath}></CollapsibleItem>
         </MenuWrapper>
