@@ -32,7 +32,7 @@ import {
 
 const Calendar = () => {
 
-  const [calendar, setCalendar] = useState([]);
+  const [monthCalendar, setCalendar] = useState([]);
   const [currentDay, setDay] = useState(moment());
   const [showPopup, togglePopup] = useState(false);
 
@@ -43,6 +43,44 @@ const Calendar = () => {
 
   let startDay = currentDay.clone().startOf("month").startOf("week");
   let endDay = currentDay.clone().endOf("month").endOf("week");
+
+  let [events, modifyEvents] = useState([
+    {
+      "calendar" : "math",
+      "date" : moment().set({'year' : 2021, 'month': "June", 'date':"13", 'hour': "13", 'minute': "0"}),
+      "name": "Math Club Kahoot!"
+    },
+    {
+      "calendar" : "parties",
+      "date" : moment().set({'year' : 2021, 'month': "June", 'date':"18", 'hour': "17", 'minute': "30"}),
+      "name": "Virtual Waterloo Party!"
+    },
+    {
+      "calendar" : "homework",
+      "date" : moment().set({'year' : 2021, 'month': "June", 'date':"27", 'hour': "11", 'minute': "00"}),
+      "name": "Recess Hacks Submissions Due!"
+    },
+    {
+      "calendar" : "cs",
+      "date" : moment().set({'year' : 2021, 'month': "June", 'date':"30", 'hour': "14", 'minute': "15"}),
+      "name": "Intro to Web Dev"
+    }
+  ])
+
+  function addEvent(name, momentDate, calendar){
+    let newEvents = events;
+    newEvents.push({
+      "calendar": calendar,
+      "date": momentDate,
+      "name": name
+    })
+    modifyEvents(newEvents)
+
+    //force rerender
+    let saveCalendar = monthCalendar;
+    setCalendar([])
+    setCalendar(saveCalendar)
+  }
 
   function createCalendar(){
     startDay = currentDay.clone().startOf("month").startOf("week");
@@ -56,9 +94,9 @@ const Calendar = () => {
           .map(() => day.add(1, "day").clone())
       );
     }
-    console.log("og", calendar)
+    //console.log("og", monthCalendar)
     setCalendar(a);
-    console.log("new", calendar)
+    //console.log("new", monthCalendar)
   };
 
   useEffect(() => {
@@ -102,9 +140,71 @@ const Calendar = () => {
     toggleMath(!showMath)
   }
 
+  function makeEvent(day, e){
+    if (e.calendar === "parties"){
+      if (showParties){
+        if(isSameDay(day, e.date)){
+          return (
+            <Event time={e.date.format('h:mm a')} name={e.name}></Event>
+          )
+        }
+      }
+    }
+    else if (e.calendar === "homework"){
+      if (showHw){
+        console.log("checking")
+        if(isSameDay(day, e.date)){
+          console.log("Date", e.date.format('h:mm a'))
+          return (
+            <Event time={e.date.format('h:mm a')} name={e.name}></Event>
+          )
+        }
+      }
+    }
+    else if (e.calendar === "cs"){
+      if (showCS){
+        if(isSameDay(day, e.date)){
+          return (
+            <Event time={e.date.format('h:mm a')} name={e.name}></Event>
+          )
+        }
+      }
+    }
+    else if (e.calendar === "math"){
+      if (showMath){
+        if(isSameDay(day, e.date)){
+          return (
+            <Event time={e.date.format('h:mm a')} name={e.name}></Event>
+          )
+        }
+      }
+    }
+
+    return (<></>)
+  }
+
+  function checkEvents(day){
+    /*Event Checker */
+    // isSameDay(day, currentDay) ?
+    //   <Event time="5AM" name="Sleep time"></Event>
+    // :
+    //   <></>
+    return(
+      events.map((e) => {
+        return (<>
+          {
+            makeEvent(day, e)
+          }
+        </>)
+      })
+      
+    )
+    
+  }
+
   return (
     <>
-      <Popup showPopup={showPopup} togglePopup={togglePopup}></Popup>
+      <Popup showPopup={showPopup} addEvent={addEvent} togglePopup={togglePopup}></Popup>
       <DynamicFlexbox>
 
         {/* Menu */}
@@ -113,7 +213,7 @@ const Calendar = () => {
           <CollapsibleItem style={{cursor: "pointer"}} toggleCheckmark={showParties} name="Parties" doClick={clickParties}></CollapsibleItem>
           <CollapsibleItem style={{cursor: "pointer"}} toggleCheckmark={showHw} name="Homework" doClick={clickHw}></CollapsibleItem>
 
-          <CollapsibleHeader title={"Clubs"}></CollapsibleHeader>
+          <CollapsibleHeader usePlus={true} title={"Clubs"}></CollapsibleHeader>
           <CollapsibleItem style={{cursor: "pointer"}} toggleCheckmark={showCS} name="CS Club" doClick={clickCS}></CollapsibleItem>
           <CollapsibleItem style={{cursor: "pointer"}} toggleCheckmark={showMath} name="Math Club" doClick={clickMath}></CollapsibleItem>
         </MenuWrapper>
@@ -138,7 +238,7 @@ const Calendar = () => {
             <MonthGrid>
 
               {
-                calendar.map((week) => {
+                monthCalendar.map((week) => {
                   return (
                     week.map((day) => {
                       return (
@@ -148,11 +248,7 @@ const Calendar = () => {
                         >
                           {day.clone().format("D")}
                           {
-                            /*Event Checker */
-                            isSameDay(day, currentDay) ?
-                              <Event time="5AM" name="Sleep time"></Event>
-                            :
-                              <></>
+                            checkEvents(day.clone())
                           }
                         </MonthDay>
                       )

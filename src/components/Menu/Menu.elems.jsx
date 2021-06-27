@@ -26,6 +26,7 @@ export const CollapsibleHeader = ({title, usePlus = false}) => {
       <MdKeyboardArrowDown size={50}></MdKeyboardArrowDown>
       <Text> {title} </Text>
       <Spacing></Spacing>
+      
       {
         usePlus ?
           <GoPlus size={30} style={{cursor:"pointer"}}></GoPlus>
