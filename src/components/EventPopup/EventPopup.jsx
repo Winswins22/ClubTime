@@ -57,7 +57,7 @@ const Popup = ({showPopup, togglePopup, eventName=null, eventStartMoment=null}) 
 
       setTimeout(() => {
         changeText("Creating ...")
-      }, 1000)
+      }, 100)
       setTimeout(() => {
         changeText("Created!")
         changeColor("green")
@@ -96,7 +96,7 @@ const Popup = ({showPopup, togglePopup, eventName=null, eventStartMoment=null}) 
                     
                     <NewLine></NewLine>
                     <WhiteSmallText> Calendar Name </WhiteSmallText>
-                    <PopupInput name="calendar" value="Calendar"></PopupInput>
+                    <PopupInput name="calendar" value="Homework"></PopupInput>
                     
                     <NewLine></NewLine>
                     <WhiteSmallText> Event Date </WhiteSmallText>

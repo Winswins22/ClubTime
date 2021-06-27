@@ -25,6 +25,10 @@ export const WhiteSmallText = styled(SmallText)`
   color: white;
 `
 
+export const VerySmallText = styled.div`
+  font-size: 1.5rem;
+`
+
 
 export const NewLine = styled.div`
   margin-top: 20px;
