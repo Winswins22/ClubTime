@@ -2,7 +2,8 @@
 
 This project was created at [Recess Hacks](https://recesshacks.devpost.com/).
  
-[Website Link](https://winswins22.github.io/ClubTime/)
+[Website Link](https://winswins22.github.io/ClubTime/)  
+
 [Demo Link](https://devpost.com/software/clubtime)
 
 # Inspiration
