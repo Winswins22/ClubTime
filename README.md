@@ -1,6 +1,6 @@
 # ClubTime
 
-This project was created at [Recess Hacks](https://recesshacks.devpost.com/).
+ClubTime was created at [Recess Hacks](https://recesshacks.devpost.com/), and was awarded the 'Best Overall Project' prize.
  
 [Website Link](https://winswins22.github.io/ClubTime/)  
 
