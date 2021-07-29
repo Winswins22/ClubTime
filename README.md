@@ -28,7 +28,8 @@ We ran into time constraints due to how long it takes to create components of th
 # Accomplishments that we're proud of
 
 We are proud that we were able to complete this project in such a short amount of time, especially when only two out of our three team members knew how to code.
-What we learned
+
+# What we learned
 
 We learned that we should have practiced before the competition started so that all our team members would have known how to do web development. We also learned that libraries are useful for saving time, as we spent a lot of time on many components when there were other libraries which had already implemented our target features.
 
